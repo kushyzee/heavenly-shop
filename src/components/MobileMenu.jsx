@@ -9,7 +9,7 @@ const MobileMenu = (props) => {
     <Dialog
       open={mobileMenuOpen}
       onClose={setMobileMenuOpen}
-      className="lg:hidden"
+      className="md:hidden"
     >
       <div className="fixed inset-0 z-10" />
       <DialogPanel
@@ -35,19 +35,21 @@ const MobileMenu = (props) => {
               <div className="space-y-2 py-6">
                 <Link
                   to="/"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  href="#"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   About Us
                 </Link>
                 <Link
                   to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contact
