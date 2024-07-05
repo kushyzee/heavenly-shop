@@ -26,7 +26,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="flex gap-x-8 lg:hidden">
+        <div className="flex gap-x-8 md:hidden">
           <IoCartOutline
             className="text-3xl text-gray-900 cursor-pointer hover:scale-110 transition-transform duration-200"
           />
