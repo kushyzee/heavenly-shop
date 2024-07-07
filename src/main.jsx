@@ -1,22 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Layout from './components/layouts/Layout.jsx'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import AppRoutes from "./AppRoutes";
+import CartProvider from "./context/CartProvider";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Layout />} >
-          <Route index element={<Home />} />
-          <Route path='about' element={<About />} />
-          <Route path='contact' element={<Contact />} />
-        </Route>
-      </Routes>
-    </Router>
+    <CartProvider>
+      <AppRoutes />
+    </CartProvider>
   </React.StrictMode>
-)
+);
