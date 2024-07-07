@@ -11,7 +11,7 @@ const MobileMenu = (props) => {
       onClose={setMobileMenuOpen}
       className="md:hidden"
     >
-      <div className="fixed inset-0 z-10" />
+      {/* <div className="fixed inset-0 z-10" /> */}
       <DialogPanel
         onClick={() => {
           setMobileMenuOpen(false);
@@ -41,14 +41,21 @@ const MobileMenu = (props) => {
                   Home
                 </Link>
                 <Link
-                  to="/about"
+                  to="products"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Shop
+                </Link>
+                <Link
+                  to="about"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   About Us
                 </Link>
                 <Link
-                  to="/contact"
+                  to="contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
