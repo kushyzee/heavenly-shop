@@ -11,7 +11,10 @@ const Header = () => {
 
   return (
     <header className="bg-white">
-      <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <MobileMenu
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
 
       {/* Desktop navbar */}
       <nav
@@ -27,9 +30,7 @@ const Header = () => {
         </Link>
 
         <div className="flex gap-x-8 md:hidden">
-          <IoCartOutline
-            className="text-3xl text-gray-900 cursor-pointer hover:scale-110 transition-transform duration-200"
-          />
+          <IoCartOutline className="text-3xl text-gray-900 cursor-pointer hover:scale-110 transition-transform duration-200" />
           <span className="sr-only">Cart</span>
           {/* Mobile menu button*/}
           <button
