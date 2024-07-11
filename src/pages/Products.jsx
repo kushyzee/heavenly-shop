@@ -1,32 +1,43 @@
 import products from "../assets/products";
 
+const formatPrice = (price) => {
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price);
+};
+
 const Products = () => {
   return (
-    <main className="px-5 my-14 md:my-20 text-gray-700 text-base md:text-lg max-w-5xl mx-auto">
+    <main className="mx-auto my-14 px-5 text-base text-gray-700 md:my-20 md:text-lg max-w-6xl">
       <div>
-        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 ">Our Products</h1>
-        <p className="text-lg mt-2">
+        <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl">
+          Our Products
+        </h1>
+        <p className="mt-2 text-lg">
           Explore our wide range of homemade cakes, cookies and pastries
         </p>
       </div>
 
-      {/* Products */}
-      <section className="flex mt-9 max-w-4xl mx-auto flex-wrap justify-center items-center gap-y-2 md:gap-y-4">
+      {/* Products grid */}
+      <section className="mx-auto mt-9 grid max-w-md grid-cols-2 items-center justify-between gap-2 sm:max-w-full sm:grid-cols-3 lg:grid-cols-4 md:gap-4 md:gap-y-4">
         {products.map((product) => (
           <div
             key={product.id}
-            className="w-1/2 p-2 md:p-4 grow bg-white md:w-1/3 shadow"
+            className="grow rounded-md border border-neutral-300 bg-white shadow md:p-4"
           >
             <img
-              className="w-full rounded-md h-36 object-cover object-center"
+              className="h-36 w-full rounded-se-md rounded-ss-md object-cover object-center"
               src={product.image}
               alt={product.name}
             />
-            <div className="mt-3">
-              <p>{product.name}</p>
-              <p className="font-semibold text-2xl">{`$${product.price}.00`}</p>
+            <div className="p-2">
+              <p className="text-sm">{product.name}</p>
+              <p className="text-xl font-medium">
+                {formatPrice(product.price)}
+              </p>
               <button
-                className="mt-6 bg-red-600 text-white py-2 px-4 rounded-lg w-full hover:bg-red-700 transition-colors duration-200"
+                className="mt-5 w-full rounded-lg bg-red-600 px-4 py-2 text-white transition-colors duration-200 hover:bg-red-700"
                 type="button"
               >
                 Add to cart

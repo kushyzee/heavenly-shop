@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { FaX } from "react-icons/fa6";
 import logo from "../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import MobileNavLinks from "./MobileNavLinks";
 
 const MobileMenu = (props) => {
   const { mobileMenuOpen, setMobileMenuOpen } = props;
@@ -16,9 +16,9 @@ const MobileMenu = (props) => {
         onClick={() => {
           setMobileMenuOpen(false);
         }}
-        className="fixed inset-y-0 right-0 z-10 w-full bg-black/40 overflow-y-auto "
+        className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black/40"
       >
-        <div className="h-full overflow-y-auto bg-white sm:ring-1 sm:ring-gray-900/10 px-6 py-6 sm:max-w-sm w-5/6 ml-auto">
+        <div className="ml-auto h-full w-5/6 overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <img alt="Heavenly Delights" src={logo} className="h-6 w-auto" />
             <button
@@ -31,36 +31,31 @@ const MobileMenu = (props) => {
             </button>
           </div>
           <div className="mt-20 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Link
-                  to="/"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="products"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Shop
-                </Link>
-                <Link
-                  to="about"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  About Us
-                </Link>
-                <Link
-                  to="contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Contact
-                </Link>
+            <div className="">
+              <div className="space-y-2 py-4">
+                <MobileNavLinks
+                  page="/"
+                  linkText="Home"
+                  setMobileMenuOpen={setMobileMenuOpen}
+                />
+
+                <MobileNavLinks
+                  page="/products"
+                  linkText="Shop"
+                  setMobileMenuOpen={setMobileMenuOpen}
+                />
+
+                <MobileNavLinks
+                  page="/about"
+                  linkText="About Us"
+                  setMobileMenuOpen={setMobileMenuOpen}
+                />
+
+                <MobileNavLinks
+                  page="/contact"
+                  linkText="Contact"
+                  setMobileMenuOpen={setMobileMenuOpen}
+                />
               </div>
             </div>
           </div>

@@ -4,10 +4,12 @@ import Home from './pages/Home.jsx'
 import Products from './pages/Products.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 const AppRoutes = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
