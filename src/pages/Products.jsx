@@ -1,4 +1,5 @@
 import products from "../assets/products";
+import { useCart } from "../components/CartProvider";
 
 const formatPrice = (price) => {
   return new Intl.NumberFormat("en-NG", {
@@ -7,7 +8,9 @@ const formatPrice = (price) => {
   }).format(price);
 };
 
+const { addToCart, cart } = useCart();
 const Products = () => {
+
   return (
     <main className="mx-auto my-14 px-5 text-base text-gray-700 md:my-20 md:text-lg max-w-6xl">
       <div>
@@ -36,7 +39,7 @@ const Products = () => {
               <p className="text-xl font-medium">
                 {formatPrice(product.price)}
               </p>
-              <button
+              <button onClick={() => { addToCart(product) }}
                 className="mt-5 w-full rounded-lg bg-red-600 px-4 py-2 text-white transition-colors duration-200 hover:bg-red-700"
                 type="button"
               >
@@ -49,5 +52,5 @@ const Products = () => {
     </main>
   );
 };
-
+console.log(cart);
 export default Products;
