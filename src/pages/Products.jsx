@@ -8,8 +8,9 @@ const formatPrice = (price) => {
   }).format(price);
 };
 
-const { addToCart, cart } = useCart();
 const Products = () => {
+  const { addToCart, cart } = useCart();
+  console.log(cart);
 
   return (
     <main className="mx-auto my-14 px-5 text-base text-gray-700 md:my-20 md:text-lg max-w-6xl">
@@ -52,5 +53,4 @@ const Products = () => {
     </main>
   );
 };
-console.log(cart);
 export default Products;
