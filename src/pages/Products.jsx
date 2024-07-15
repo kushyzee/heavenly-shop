@@ -1,4 +1,5 @@
-import products from "../assets/products";
+import { useState, useEffect } from "react";
+import { supabase } from "../supabase";
 import { useCart } from "../components/CartProvider";
 
 const formatPrice = (price) => {
@@ -10,7 +11,22 @@ const formatPrice = (price) => {
 
 const Products = () => {
   const { addToCart, cart } = useCart();
-  console.log(cart);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data, error } = await supabase.from("products").select("*")
+
+      if (error) {
+        console.error("Error fetching products:", error);
+      } else {
+        setProducts(data);
+      }
+    };
+
+    fetchProducts();
+  },[]);
+
 
   return (
     <main className="mx-auto my-14 px-5 text-base text-gray-700 md:my-20 md:text-lg max-w-6xl">
@@ -24,11 +40,11 @@ const Products = () => {
       </div>
 
       {/* Products grid */}
-      <section className="mx-auto mt-9 grid max-w-md grid-cols-2 items-center justify-between gap-2 sm:max-w-full sm:grid-cols-3 lg:grid-cols-4 md:gap-4 md:gap-y-4">
+      <section className="mx-auto mt-9 grid max-w-md grid-cols-2 items-center justify-between gap-2 sm:max-w-full sm:grid-cols-3 lg:grid-cols-4 md:gap-4 md:gap-y-4 min-h-svh">
         {products.map((product) => (
           <div
-            key={product.id}
-            className="grow rounded-md border border-neutral-300 bg-white shadow md:p-4"
+            key={product.name}
+            className="grow rounded-md border border-neutral-300 bg-white shadow md:p-4 min-h-60"
           >
             <img
               className="h-36 w-full rounded-se-md rounded-ss-md object-cover object-center"
@@ -36,8 +52,8 @@ const Products = () => {
               alt={product.name}
             />
             <div className="p-2">
-              <p className="text-sm">{product.name}</p>
-              <p className="text-xl font-medium">
+              <p className="text-sm font-medium text-gray-500">{product.name}</p>
+              <p className="text-xl font-semibold">
                 {formatPrice(product.price)}
               </p>
               <button onClick={() => { addToCart(product) }}

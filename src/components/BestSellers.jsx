@@ -33,18 +33,19 @@ const BestSellers = () => {
         {bestProducts.map((product) => (
           <div
             key={product.id}
-            className="rounded-xl border border-neutral-300 p-4 sm:max-w-96 md:max-w-max"
+            className="rounded-xl border border-neutral-300 p-4 max-w-96 md:max-w-max hover:border-red-400 transition-colors duration-200 group"
           >
-            <div className="h-52 w-full overflow-hidden">
+            <div className="h-52 w-full overflow-hidden relative rounded-lg">
               <img
                 src={product.image}
                 alt={product.name}
-                className="h-full w-full rounded-lg object-cover object-center"
+                className="h-full w-full rounded-lg object-cover object-center group-hover:scale-110 transition-transform duration-200"
               />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-200 p-4"><p className="text-neutral-50 text-sm font-medium bg-red-600 inline-block rounded-md px-2 py-0.5 group-hover:-translate-y-96 transition-transform duration-300">Hot</p></div>
             </div>
-            <p className="mt-4 text-lg lg:text-xl font-semibold">{product.name}</p>
+            <p className="mt-4 text-lg lg:text-xl font-semibold group-hover:text-red-600 transition-colors duration-200">{product.name}</p>
             <p className="mb-5">{product.desc}</p>
-            <Link to="/products" className="text-red-600 hover:text-red-700 flex items-center gap-1">
+            <Link to="/products" className="text-red-600 hover:text-red-700 w-fit flex items-center gap-1">
               Order <MdKeyboardArrowRight className="text-xl" />
             </Link>
           </div>
