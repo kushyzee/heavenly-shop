@@ -1,10 +1,9 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import DesktopNavLinks from "./DesktopNavLinks";
-import { useCart } from "./CartProvider";
 
-const DesktopMenu = () => {
-  const { cartItemsCount } = useCart();
+const DesktopMenu = ({totalItems}) => {
+  // const { cartItemsCount } = useCart();
 
   return (
     <div className="hidden md:flex md:gap-x-12">
@@ -19,8 +18,8 @@ const DesktopMenu = () => {
             aria-hidden="true"
             className="text-2xl text-gray-900 transition-colors duration-300 group-hover:text-red-800"
           />
-          {cartItemsCount > 0 && <p className="absolute -right-1.5 -top-1.5 flex size-4 items-center justify-center overflow-hidden rounded-full bg-red-600 text-center text-[10px] text-neutral-50">
-            <span className="inline-block">0</span>
+          {totalItems > 0 && <p className="absolute -right-1.5 -top-1.5 flex size-4 items-center justify-center overflow-hidden rounded-full bg-red-600 text-center text-[10px] text-neutral-50">
+            <span className="inline-block">{totalItems}</span>
           </p>}
         </div>
         <span className="text-lg font-semibold leading-6 text-gray-900 transition-colors duration-300 group-hover:text-red-800">

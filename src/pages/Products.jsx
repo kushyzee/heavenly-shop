@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabase";
-import { useCart } from "../components/CartProvider";
-
-const formatPrice = (price) => {
-  return new Intl.NumberFormat("en-NG", {
-    style: "currency",
-    currency: "NGN",
-  }).format(price);
-};
+import { useCart } from "../context/CartProvider";
+import PageSection from "../components/PageSection";
+import PageTitle from "../components/PageTitle";
+import { formatPrice } from "../utils/formatPrice";
+import Loader from "../lib/loader";
+import { convertMoney } from "../utils/convertMoney";
 
 const Products = () => {
-  const { addToCart, cart } = useCart();
+  const {state, dispatch} = useCart()
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       const { data, error } = await supabase.from("products").select("*")
 
       if (error) {
@@ -22,25 +22,33 @@ const Products = () => {
       } else {
         setProducts(data);
       }
+      setLoading(false);
     };
 
     fetchProducts();
   },[]);
 
+  const addToCart = (product ) => {
+    const convertedPrice = convertMoney(product.price, "toKobo")
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {...product, quantity: 1, koboPrice: convertedPrice},
+    });
+  }
+
+  console.log(state)
 
   return (
-    <main className="mx-auto my-14 px-5 text-base text-gray-700 md:my-20 md:text-lg max-w-6xl">
+    <PageSection>
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl">
-          Our Products
-        </h1>
+        <PageTitle title="Our Products" />
         <p className="mt-2 text-lg">
           Explore our wide range of homemade cakes, cookies and pastries
         </p>
       </div>
 
       {/* Products grid */}
-      <section className="mx-auto mt-9 grid max-w-md grid-cols-2 items-center justify-between gap-2 sm:max-w-full sm:grid-cols-3 lg:grid-cols-4 md:gap-4 md:gap-y-4 min-h-svh">
+      {loading ? <Loader /> :  <section className="mx-auto mt-9 grid max-w-md grid-cols-2 items-center justify-between gap-2 sm:max-w-full sm:grid-cols-3 lg:grid-cols-4 md:gap-4 md:gap-y-4 min-h-svh">
         {products.map((product) => (
           <div
             key={product.name}
@@ -65,8 +73,8 @@ const Products = () => {
             </div>
           </div>
         ))}
-      </section>
-    </main>
+      </section>}
+    </PageSection>
   );
 };
 export default Products;

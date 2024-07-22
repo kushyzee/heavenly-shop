@@ -1,12 +1,14 @@
 import ourStory from "../assets/images/our-story.jpg"
 import Team from "../components/Team";
+import PageSection from "../components/PageSection";
+import PageTitle from "../components/PageTitle";
 
 const About = () => {
   return (
-    <section className="px-5 my-14 md:my-20 text-gray-700 text-base md:text-lg md:max-w-5xl mx-auto max-w-xl">
+    <PageSection>
       <div className=" md:flex md:items-center md:justify-between gap-5">
         <div className="md:max-w-lg">
-          <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl">Our Story</h1>
+        <PageTitle title="Our Story" />
           <p className="mt-3">
             Welcome to Heavenly Delights! Our bakery was founded with a passion
             for creating delicious and beautiful baked goods. It all started when
@@ -22,7 +24,7 @@ const About = () => {
       </div>
 
       <Team /> 
-    </section>
+    </PageSection>
   );
 };
 

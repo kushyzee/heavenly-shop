@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
-import { useCart } from "./CartProvider";
+import { useCart } from "../context/CartProvider";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { cartItemsCount } = useCart();
+  const { state } = useCart();
+  const {totalItems} = state
 
   return (
     <header className="bg-white shadow">
@@ -37,8 +38,8 @@ const Header = () => {
               <MdOutlineShoppingCart className="cursor-pointer text-2xl text-gray-900 transition-transform duration-200 hover:scale-110" />
               <span className="sr-only">Cart</span>
             </Link>
-            {cartItemsCount > 0 && <p className="absolute -right-1.5 -top-1.5 flex size-4 items-center justify-center overflow-hidden rounded-full bg-red-600 text-center text-[10px] text-neutral-50">
-              <span className="inline-block">{cartItemsCount}</span>
+            {totalItems > 0 && <p className="absolute -right-1.5 -top-1.5 flex size-4 items-center justify-center overflow-hidden rounded-full bg-red-600 text-center text-[10px] text-neutral-50">
+              <span className="inline-block">{totalItems}</span>
             </p>}
           </div>
 
@@ -52,7 +53,7 @@ const Header = () => {
             <FaBars aria-hidden="true" className="h-6 w-6" />
           </button>
         </div>
-        <DesktopMenu />
+        <DesktopMenu totalItems={totalItems} />
       </nav>
     </header>
   );
