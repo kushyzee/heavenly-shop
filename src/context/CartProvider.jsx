@@ -8,6 +8,7 @@ const initialState = {
   totalItems: JSON.parse(localStorage.getItem("totalItems")) || 0,
   subtotal: JSON.parse(localStorage.getItem("subtotal")) || 0,
   total: JSON.parse(localStorage.getItem("total")) || 0,
+  shippingFee: SHIPPING_FEE,
 };
 
 const cartReducer = (state, action) => {

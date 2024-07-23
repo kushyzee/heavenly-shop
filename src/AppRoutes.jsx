@@ -1,11 +1,13 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Layout from './components/layouts/Layout.jsx'
-import Home from './pages/Home.jsx'
-import Products from './pages/Products.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Cart from './pages/Cart.jsx'
-import ScrollToTop from './components/ScrollToTop.jsx'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "./components/layouts/Layout.jsx";
+import Home from "./pages/Home.jsx";
+import Products from "./pages/Products.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import PaymentSuccessful from "./pages/PaymentSuccessful.jsx";
+import Cart from "./pages/Cart.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const AppRoutes = () => {
   return (
@@ -14,8 +16,10 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='products' element={<Products />} />
-          <Route path='cart' element={<Cart />} />
+          <Route path="products" element={<Products />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="success" element={<PaymentSuccessful />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
         </Route>

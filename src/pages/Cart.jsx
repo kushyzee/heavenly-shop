@@ -5,6 +5,8 @@ import { convertMoney } from "../utils/convertMoney";
 import { formatPrice } from "../utils/formatPrice";
 import { FaSquarePlus, FaSquareMinus } from "react-icons/fa6";
 import CartIsEmpty from "../components/CartIsEmpty";
+import OrderSummary from "../components/OrderSummary";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { state, dispatch } = useCart();
@@ -17,7 +19,6 @@ const Cart = () => {
     dispatch({ type: "INCREASE_QUANTITY", payload: id });
   };
   const handleRemove = (id) => {
-    console.log(id);
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
 
@@ -28,7 +29,7 @@ const Cart = () => {
       ) : (
         <div>
           <PageTitle title={"Cart"} />
-          <div className="mt-14">
+          <div className="mt-14 relative">
             <div className="mb-4 flex items-center justify-between font-semibold">
               <p className="text-sm">subtotal</p>
               <p className="text-lg">
@@ -91,6 +92,12 @@ const Cart = () => {
                 </div>
               ))}
             </div>
+
+            {/* ORDER SUMMARY */}
+            <OrderSummary state={state} />
+            <button className="w-full sticky bottom-2">
+              <Link className="mt-6 bg-red-600 w-full inline-block rounded-md py-2.5 text-zinc-50 transition-colors duration-300 hover:bg-red-700" to="/checkout">Checkout <span className="text-sm">({formatPrice(convertMoney(state.total, "toNaira"))})</span> </Link>
+            </button>
           </div>
         </div>
       )}
