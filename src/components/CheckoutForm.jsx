@@ -126,7 +126,7 @@ const CheckoutForm = ({ dispatch, checkoutDetails }) => {
       </div>
       <button
         type="submit"
-        className="w-full rounded-lg bg-red-600 px-4 py-2.5 text-center text-base font-normal text-neutral-50"
+        className="w-full rounded-lg bg-red-600 px-4 py-2.5 text-center text-base lg:text-lg font-normal text-neutral-50"
       >
         Proceed to payment
       </button>

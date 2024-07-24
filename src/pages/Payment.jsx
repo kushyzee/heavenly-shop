@@ -37,19 +37,20 @@ const Payment = () => {
       {state.cart.length === 0 ? (
         <NotFound />
       ) : (
-        <>
-          <div className="">
-            <div>
-              <PageTitle title="Payment method" />
+        <div className="max-w-screen-sm mx-auto lg:max-w-2xl">
+          <PageTitle title="Payment method" />
+
+          <div>
+            <div className="gap-7 md:flex md:items-start md:justify-between lg:gap-10">
               <RadioButton />
+              <OrderSummary state={state} />
             </div>
-            <OrderSummary state={state} />
           </div>
           <PaystackButton
-            className="mt-10 w-full rounded-lg bg-red-600 px-4 py-2.5 text-center text-base font-normal text-neutral-50"
+            className="mt-10 lg:mt-16 w-full rounded-lg bg-red-600 px-4 py-2.5 text-center text-base font-normal text-neutral-50"
             {...componentProps}
           />
-        </>
+        </div>
       )}
     </PageSection>
   );

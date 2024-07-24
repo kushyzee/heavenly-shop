@@ -22,7 +22,7 @@ const Header = () => {
       {/* Desktop navbar */}
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-6xl items-center justify-between p-4 lg:px-0 lg:py-8"
+        className="mx-auto flex max-w-6xl items-center justify-between p-4 lg:px-5 lg:py-6 xl:px-0"
       >
         <Link to="/">
           <img

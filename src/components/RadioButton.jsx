@@ -5,7 +5,7 @@ const RadioButton = () => {
       <div className="mt-6">
         <label
           htmlFor="paystack"
-          className="flex cursor-pointer gap-3 w-fit justify-center rounded-lg border border-gray-100 px-3 py-4 text-sm font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-red-600"
+          className="flex cursor-pointer gap-3 w-fit justify-center rounded-lg border border-gray-100 px-3 py-4 text-sm lg:text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-red-600"
         >
           <input
             type="radio"

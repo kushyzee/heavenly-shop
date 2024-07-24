@@ -14,13 +14,16 @@ const Checkout = () => {
         <NotFound />
       ) : (
         <div>
-          <div>
-            <PageTitle title={"Checkout"} />
-            <div className="mt-6">
-              <CheckoutForm dispatch={dispatch} checkoutDetails={state.checkoutDetails} />
+          <PageTitle title={"Checkout"} />
+          <div className="md:flex md:justify-between md:items-start gap-7 lg:gap-10">
+            <div className="mt-6 flex-1 md:max-w-xl">
+              <CheckoutForm
+                dispatch={dispatch}
+                checkoutDetails={state.checkoutDetails}
+              />
             </div>
+            <OrderSummary state={state} />
           </div>
-          <OrderSummary state={state} />
         </div>
       )}
     </PageSection>

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const CustomCakesTexts = () => {
   return (
-    <div>
+    <div className="text-base lg:text-lg">
       <h2 className="text-sm font-semibold text-red-600 lg:text-base">
         Custom cakes
       </h2>
-      <p className="mb-4 text-2xl font-semibold text-neutral-900 lg:text-3xl">
+      <p className="mb-4 text-2xl font-semibold text-neutral-900 lg:text-3xl text-balance">
         Indulge in Our Custom Cakes and Pastries
       </p>
       <p>
@@ -14,7 +14,7 @@ const CustomCakesTexts = () => {
         for all your special occasions. Whether it's a birthday, wedding, or
         anniversary, our custom cakes and pastries are sure to impress.
       </p>
-      <div className="mt-7 flex flex-col gap-4">
+      <div className="mt-7 flex flex-col gap-4 md:flex-row">
         <div>
           <p className="font-semibold text-neutral-900 lg:text-lg">
             Personalized Designs

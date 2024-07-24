@@ -9,7 +9,7 @@ const PaymentSuccessful = () => {
   return (
     <PageSection>
       {}
-      <div className="flex flex-col items-center justify-center rounded-xl border border-zinc-300 p-10">
+      <div className="flex flex-col items-center justify-center rounded-xl border border-zinc-300 p-10 max-w-96 mx-auto">
         <FaCircleCheck className="size-28 text-green-600" />
         <h1 className="mb-3 mt-5 text-xl font-medium text-zinc-900">
           Order Confirmed

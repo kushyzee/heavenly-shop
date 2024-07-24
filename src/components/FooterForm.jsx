@@ -2,13 +2,13 @@ import { MdEmail } from "react-icons/md";
 
 const FooterForm = () => {
   return (
-    <div className="mt-5 border-b border-neutral-600 pb-5">
+    <div className="mt-5 border-b border-neutral-600 pb-5 md:pb-0 md:border-0">
       <form>
         <div className="relative">
           <label htmlFor="email" className="sr-only">
             Email
           </label>
-          <span className="pointer-events-none absolute inset-y-0 start-2 grid place-content-center text-2xl text-neutral-400">
+          <span className="pointer-events-none absolute inset-y-0 start-2 grid place-content-center text-2xl lg:text-3xl text-neutral-400">
             <MdEmail />
           </span>
           <input
@@ -26,7 +26,7 @@ const FooterForm = () => {
           Subscribe
         </button>
       </form>
-      <p className="mt-2 text-xs">
+      <p className="mt-2 text-xs md:text-sm">
         By subscribing you agree to with our Privacy Policy and provide consent
         to receive updates from our company.
       </p>

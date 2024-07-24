@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const PageSection = ({children}) => {
+const PageSection = ({ children }) => {
   return (
-    <section className="px-5 mt-28 mb-14 md:my-20 text-gray-700 text-base md:text-lg md:max-w-5xl mx-auto max-w-xl">
+    <section className="mx-auto mb-14 mt-28 max-w-xl px-5 text-base text-gray-700 md:mb-20 md:mt-36 md:max-w-5xl md:text-lg lg:mb-36 lg:mt-44">
       {children}
     </section>
-  )
-}
+  );
+};
 
-export default PageSection
+export default PageSection;
