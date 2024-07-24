@@ -1,5 +1,4 @@
 import CustomCakesTexts from "./CustomCakesTexts";
-import customCakeImg from "../assets/images/custom-cake.jpg";
 
 const CustomCakes = () => {
   return (
@@ -8,7 +7,7 @@ const CustomCakes = () => {
       <div className="mt-8 md:mt-10 max-w-lg rounded-xl">
         <img
           className="h-auto rounded-xl object-contain"
-          src={customCakeImg}
+          src="https://ik.imagekit.io/kushyzee/heavenly_delights/custom-cake_bf77zmcYc.jpg?updatedAt=1721850307465"
           alt="custom cake"
         />
       </div>

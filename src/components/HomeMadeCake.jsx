@@ -1,4 +1,3 @@
-import homeMadeImg from "../assets/images/homemade-cakes.jpg";
 import { Link } from "react-router-dom";
 
 const HomeMadeCake = () => {
@@ -25,7 +24,7 @@ const HomeMadeCake = () => {
         </div>
       </div>
       <div className="mt-8 md:mt-0 md:max-w-96 lg:max-w-md">
-        <img className="w-full h-auto rounded-xl" src={homeMadeImg} alt="Home made Cakes" />
+        <img className="w-full h-auto rounded-xl" src="https://ik.imagekit.io/kushyzee/heavenly_delights/homemade-cakes_rlkNkRhkW.jpg?updatedAt=1721850335923" alt="Home made Cakes" />
       </div>
     </section>
   );
