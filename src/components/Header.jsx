@@ -13,7 +13,7 @@ const Header = () => {
   const {totalItems} = state
 
   return (
-    <header className="bg-white shadow">
+    <header className="bg-white shadow fixed w-full top-0 z-40">
       <MobileMenu
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}

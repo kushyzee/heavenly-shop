@@ -7,6 +7,7 @@ import { FaSquarePlus, FaSquareMinus } from "react-icons/fa6";
 import CartIsEmpty from "../components/CartIsEmpty";
 import OrderSummary from "../components/OrderSummary";
 import { Link } from "react-router-dom";
+import toastify from "../utils/toastify";
 
 const Cart = () => {
   const { state, dispatch } = useCart();
@@ -18,14 +19,15 @@ const Cart = () => {
   const handleIncrease = (id) => {
     dispatch({ type: "INCREASE_QUANTITY", payload: id });
   };
-  const handleRemove = (id) => {
+  const handleRemove = (id, name) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
+    toastify(`${name} removed from cart`, "error")
   };
 
   return (
     <PageSection>
       {cart.length === 0 ? (
-        <CartIsEmpty />
+        <CartIsEmpty heading="Your cart is empty" />
       ) : (
         <div>
           <PageTitle title={"Cart"} />
@@ -60,7 +62,7 @@ const Cart = () => {
                     <p
                       className="cursor-pointer text-xs font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
                       onClick={() => {
-                        handleRemove(item.id);
+                        handleRemove(item.id, item.name);
                       }}
                     >
                       Remove

@@ -6,9 +6,11 @@ import PageTitle from "../components/PageTitle";
 import { formatPrice } from "../utils/formatPrice";
 import Loader from "../lib/loader";
 import { convertMoney } from "../utils/convertMoney";
+import toastify from "../utils/toastify";
+
 
 const Products = () => {
-  const { state, dispatch } = useCart();
+  const { dispatch } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,6 +36,8 @@ const Products = () => {
       type: "ADD_TO_CART",
       payload: { ...product, quantity: 1, koboPrice: convertedPrice },
     });
+    
+    toastify(`${product.name} added to cart`)
   };
 
   return (

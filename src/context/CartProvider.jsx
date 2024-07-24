@@ -8,6 +8,7 @@ const initialState = {
   totalItems: JSON.parse(localStorage.getItem("totalItems")) || 0,
   subtotal: JSON.parse(localStorage.getItem("subtotal")) || 0,
   total: JSON.parse(localStorage.getItem("total")) || 0,
+  checkoutDetails: JSON.parse(localStorage.getItem("checkoutDetails")) || {},
   shippingFee: SHIPPING_FEE,
 };
 
@@ -98,7 +99,15 @@ const cartReducer = (state, action) => {
         totalItems: 0,
         subtotal: 0,
         total: 0,
+        checkoutDetails: {},
       };
+
+      case "UPDATE_CHECKOUT_DETAILS":
+      return {
+        ...state,
+        checkoutDetails: payload,
+      };
+
 
     default:
       return state;
@@ -113,12 +122,14 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
     localStorage.setItem("subtotal", JSON.stringify(state.subtotal));
     localStorage.setItem("total", JSON.stringify(state.total));
+    localStorage.setItem("checkoutDetails", JSON.stringify(state.checkoutDetails));
 
     if (!state.cart.length) {
       localStorage.removeItem("cart");
       localStorage.removeItem("totalItems");
       localStorage.removeItem("subtotal");
       localStorage.removeItem("total");
+      localStorage.removeItem("checkoutDetails");
     }
   }, [state.cart, state.totalItems, state.subtotal, state.total]);
 

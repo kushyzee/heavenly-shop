@@ -1,18 +1,18 @@
 import InputField from "./InputField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import paymentSuccessful from "../pages/PaymentSuccessful";
+import toastify from "../utils/toastify";
 
-const CheckoutForm = ({ dispatch }) => {
+const CheckoutForm = ({ dispatch, checkoutDetails }) => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
+  const [firstName, setFirstName] = useState(checkoutDetails.firstName || "");
+  const [lastName, setLastName] = useState(checkoutDetails.lastName || "");
+  const [email, setEmail] = useState(checkoutDetails.email || "");
+  const [phoneNumber, setPhoneNumber] = useState(checkoutDetails.phoneNumber || "");
+  const [streetAddress, setStreetAddress] = useState(checkoutDetails.streetAddress || "");
+  const [city, setCity] = useState(checkoutDetails.city || "");
+  const [state, setState] = useState(checkoutDetails.state || "");
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -53,11 +53,22 @@ const CheckoutForm = ({ dispatch }) => {
       city.trim() === "" ||
       state.trim() === ""
     ) {
-      alert("Please fill in all fields");
+      toastify("Please fill in all fields", "error", 4000);
       return;
     }
-    navigate("/success");
-    dispatch({ type: "CLEAR_CART" });
+    dispatch({
+      type: "UPDATE_CHECKOUT_DETAILS",
+      payload: {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        streetAddress,
+        city,
+        state,
+      },
+    });
+    navigate("/payment");
   };
 
   return (
@@ -117,7 +128,7 @@ const CheckoutForm = ({ dispatch }) => {
         type="submit"
         className="w-full rounded-lg bg-red-600 px-4 py-2.5 text-center text-base font-normal text-neutral-50"
       >
-        Pay now
+        Proceed to payment
       </button>
     </form>
   );

@@ -5,7 +5,7 @@ import HomeMadeCake from "../components/HomeMadeCake";
 
 const Home = () => {
   return (
-    <section className="">
+    <section className="mt-14">
       <div className="bg-hero h-full bg-no-repeat bg-cover bg-center">
         <div className=" text-neutral-50 py-44 px-4 bg-neutral-950/60 h-full">
           <h1 className="text-4xl text-white font-bold z-20">
