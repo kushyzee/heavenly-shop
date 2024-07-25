@@ -1,47 +1,22 @@
-import cake from "./images/chocolate-cake.jpg";
-import lemonTart from "./images/lemon-tart.jpg";
-import applePie from "./images/apple-pie.webp";
-import velvetCupcake from "./images/red-velvet-cupcake.jpg"
-import muffin from "./images/blueberry-muffin.jpg"
-import doughnuts from "./images/doughnuts.jpg"
-
 const Products = [
   {
     id: 1,
     name: "Chocolate Cake",
-    price: 7000,
-    image: cake,
+    desc: "A rich and moist chocolate cake topped with creamy chocolate frosting.",
+    image: "https://ik.imagekit.io/kushyzee/heavenly_delights/chocolate-cake_e5mYADXnZ.jpg",
   },
   {
     id: 2,
     name: "Red Velvet Cupcake",
-    price: 600,
-    image: velvetCupcake, 
+    desc: "Delicious red velvet cupcakes with a tangy cream cheese frosting.",
+    image: "https://ik.imagekit.io/kushyzee/heavenly_delights/velvet-cake-homepage_6LdOXr-dB.jpg", 
   },
   {
     id: 3,
     name: "Lemon Tart",
-    price: 4000,
-    image: lemonTart,
-  },
-  {
-    id: 4,
-    name: "Apple Pie",
-    price: 4500,
-    image: applePie,
-  },
-  {
-    id: 5,
-    name: "Blueberry Muffin",
-    price: 500,
-    image: muffin,
-  },
-  {
-    id: 6,
-    name: "Glazed Doughnuts",
-    price: 800,
-    image: doughnuts, 
-  },
-];
+    desc: "A refreshing lemon tart with a buttery crust and a tangy lemon filling.",
+    image: "https://ik.imagekit.io/kushyzee/heavenly_delights/lemon-tart_9QF37kvr2.jpg",
+  }
+]
 
 export default Products;

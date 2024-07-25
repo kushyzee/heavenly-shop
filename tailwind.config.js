@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "hero": "url('/src/assets/images/hero-background.jpg')"
+        "hero": "url('https://ik.imagekit.io/kushyzee/heavenly_delights/hero-background__dYOvHUNI.jpg')"
       }
     },
   },
