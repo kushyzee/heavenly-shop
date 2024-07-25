@@ -19,7 +19,7 @@ const About = () => {
             that bring joy to every occasion.
           </p>
         </div>
-        <img className="w-full mt-6 rounded-xl md:max-w-sm lg:max-w-md" src="https://ik.imagekit.io/kushyzee/heavenly_delights/our-story_Pr4MVS2oS.jpg" alt="Our story image" />
+        <img height="280" width="320" className="w-full mt-6 rounded-xl md:max-w-sm lg:max-w-md" src="https://ik.imagekit.io/kushyzee/heavenly_delights/our-story_Pr4MVS2oS.jpg" alt="Our story image" />
       </div>
 
       <Team /> 

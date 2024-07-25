@@ -24,7 +24,8 @@ const HomeMadeCake = () => {
         </div>
       </div>
       <div className="mt-8 md:mt-0 md:max-w-96 lg:max-w-md">
-        <img
+        <img height="300px"
+          width="320px"
           loading="lazy"
           className="h-auto w-full rounded-xl"
           src="https://ik.imagekit.io/kushyzee/heavenly_delights/homemade-cakes_rlkNkRhkW.jpg"

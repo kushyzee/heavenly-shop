@@ -50,7 +50,7 @@ const Cart = () => {
                     >
                       <div className="flex items-center justify-start gap-3">
                         <div className="h-14 w-14 lg:h-20 lg:w-20">
-                          <img
+                          <img height="60px" width="60px"
                             className="h-full w-full object-cover"
                             src={item.image}
                             alt={item.name}

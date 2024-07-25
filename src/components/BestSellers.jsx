@@ -16,6 +16,8 @@ const BestSellers = () => {
           >
             <div className="h-52 w-full overflow-hidden relative rounded-lg">
               <img
+                height="260px"
+                width="300px"
                 src={product.image}
                 alt={product.name}
                 className="h-full w-full rounded-lg object-cover object-center group-hover:scale-110 transition-transform duration-200"
