@@ -13,7 +13,6 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, phone, message);
 
     if (
       firstName.trim() === "" ||
