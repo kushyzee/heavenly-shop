@@ -5,8 +5,6 @@ export const postOrders = async (payload) => {
 
   if (error) {
     return error
-  } else {
-    return "success"
   }
 
 }
