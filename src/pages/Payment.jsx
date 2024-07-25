@@ -56,10 +56,6 @@ const Payment = () => {
     setLoading(false)
   };
 
-  const paymentSuccess = async () => {
-    
-  };
-
   const componentProps = {
     email,
     amount: state.total,

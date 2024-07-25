@@ -5,7 +5,7 @@ const Loader = () => {
     <div className="py-36 flex flex-col items-center justify-center font-bold gap-3">
       <ClipLoader
         color={"#dc2626"}
-        size={150}
+        size={120}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
